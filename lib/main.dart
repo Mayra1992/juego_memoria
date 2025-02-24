@@ -32,12 +32,12 @@ class _MemoriaPageState extends State<MemoriaPage> {
   ];
 
   List<String> sonidosBase = [
-    'assets/sonidos/abeja.wav',
-    'assets/sonidos/gato.wav',
-    'assets/sonidos/leon.wav',
-    'assets/sonidos/perro.wav',
-    'assets/sonidos/pollito.wav',
-    'assets/sonidos/vaca.wav',
+    'sonidos/abeja.wav',
+    'sonidos/gato.wav',
+    'sonidos/leon.wav',
+    'sonidos/perro.wav',
+    'sonidos/pollito.wav',
+    'sonidos/vaca.wav',
   ];
 
   late List<String> imagenes;
@@ -95,9 +95,10 @@ class _MemoriaPageState extends State<MemoriaPage> {
 
   void _verificarPareja() {
     if (imagenes[seleccionadas[0]] == imagenes[seleccionadas[1]]) {
-      _audioPlayer.play(AssetSource(sonidos[seleccionadas[0]])); // Reproduce sonido
+      _audioPlayer.play(AssetSource(sonidos[seleccionadas[0]])); 
       paresEncontrados++;
     } else {
+      _audioPlayer.play(AssetSource('sonidos/burla.mp3')); 
       setState(() {
         volteadas[seleccionadas[0]] = false;
         volteadas[seleccionadas[1]] = false;
@@ -175,4 +176,3 @@ class _MemoriaPageState extends State<MemoriaPage> {
     );
   }
 }
-
